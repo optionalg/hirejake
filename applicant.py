@@ -5,9 +5,10 @@
 class Applicant(object):
     """ Docstring goes here """
 
-    def __init__(self, position, name="John Doe"):
+    def __init__(self, position, name="John Doe", likes_grapes=False):
         self.raw_name = name
         self.position = position
+	self.likes_grapes = likes_grapes
         self.interviewed = False
         self.hired = False
 
@@ -24,7 +25,9 @@ class Applicant(object):
             display_name = self.raw_name
 
 	if printed:
-            print("Hi, my name is {}.".format(display_name))
+            print("Hi, my name is {}".format(display_name))
+            if self.likes_grapes:
+                print("and I like grapes!")
 
         return display_name
 
@@ -47,7 +50,7 @@ class Applicant(object):
 
 def main():
     """ This is how you hire Jake """
-    applicant = Applicant("Cluster Boy", "Jacob Gotberg")
+    applicant = Applicant("Cluster Boy", "Jacob Gotberg", True)
     applicant.name(printed=True)
     applicant.name("loud", printed=True)
     applicant.hire()  # opps
